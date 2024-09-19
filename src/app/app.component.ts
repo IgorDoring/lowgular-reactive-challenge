@@ -37,12 +37,12 @@ export class AppComponent {
           : b.email.localeCompare(a.email);
       })
       .filter((user) => {
-        if (this.search() !== '') {
+        if (this.search().trim() !== '') {
           if (this.sortBy() === 'email') {
-            return user.email.includes(this.search());
+            return user.email.includes(this.search().trim());
           }
           if (this.sortBy() === 'lastname') {
-            return user.name.lastname.includes(this.search());
+            return user.name.lastname.includes(this.search().trim());
           }
         }
         return true
