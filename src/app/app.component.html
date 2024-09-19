@@ -1,1 +1,49 @@
-<button class="btn btn-primary">asdasdas</button>
+<main class="container mt-5">
+  <h1>Users</h1>
+  <nav class="d-flex align-items-baseline gap-1">
+    <p>Sort By</p>
+    <button class="btn btn-dark">Email</button>
+    <button class="btn btn-outline-dark">Lastname</button>
+    <p>Order</p>
+    <button class="btn btn-dark">ASC</button>
+    <button class="btn btn-outline-dark">DESC</button>
+  </nav>
+  <form>
+    <input
+      type="search"
+      class="form-control"
+      id="search"
+      name="search"
+      placeholder="Filter by email..."
+    />
+  </form>
+  <section class="mt-2">
+    <div class="row">
+      <div class="col-6">
+        <ul class="list-group">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-baseline"
+          >
+            david russel | david_r-gmail.com
+            <button class="btn btn-outline-danger">Hide</button>
+          </li>
+          <li
+            class="list-group-item d-flex justify-content-between align-items-baseline"
+          >
+            david russel | david_r-gmail.com
+            <button class="btn btn-outline-dark">Show</button>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">david russel</h5>
+            <p class="card-text">Email: david_r-gmail.com</p>
+            <button class="btn btn-danger">Hide</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
