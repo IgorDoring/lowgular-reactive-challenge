@@ -34,6 +34,15 @@ export class AppComponent {
         : b.email.localeCompare(a.email);
     });
   });
+  selectedUser: WritableSignal<UserModel | undefined> = signal(undefined);
+
+  showDetails(user: UserModel) {
+    this.selectedUser.set(user);
+  }
+
+  hideDetails() {
+    this.selectedUser.set(undefined);
+  }
 
   changeOrder(order: 'asc' | 'desc') {
     this.sortOrder.set(order);

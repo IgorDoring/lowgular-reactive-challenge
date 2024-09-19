@@ -2,11 +2,35 @@
   <h1>Users</h1>
   <nav class="d-flex align-items-baseline gap-1">
     <p>Sort By</p>
-    <button (click)="changeField('email')" class="btn" [ngClass]="[sortBy() === 'email' ? 'btn-dark' : 'btn-outline-dark']">Email</button>
-    <button (click)="changeField('lastname')" class="btn" [ngClass]="[sortBy() === 'lastname' ? 'btn-dark' : 'btn-outline-dark']">Lastname</button>
+    <button
+      (click)="changeField('email')"
+      class="btn"
+      [ngClass]="[sortBy() === 'email' ? 'btn-dark' : 'btn-outline-dark']"
+    >
+      Email
+    </button>
+    <button
+      (click)="changeField('lastname')"
+      class="btn"
+      [ngClass]="[sortBy() === 'lastname' ? 'btn-dark' : 'btn-outline-dark']"
+    >
+      Lastname
+    </button>
     <p>Order</p>
-    <button (click)="changeOrder('asc')" class="btn" [ngClass]="[sortOrder() === 'asc' ? 'btn-dark' : 'btn-outline-dark']">ASC</button>
-    <button (click)="changeOrder('desc')" class="btn" [ngClass]="[sortOrder() === 'desc' ? 'btn-dark' : 'btn-outline-dark']">DESC</button>
+    <button
+      (click)="changeOrder('asc')"
+      class="btn"
+      [ngClass]="[sortOrder() === 'asc' ? 'btn-dark' : 'btn-outline-dark']"
+    >
+      ASC
+    </button>
+    <button
+      (click)="changeOrder('desc')"
+      class="btn"
+      [ngClass]="[sortOrder() === 'desc' ? 'btn-dark' : 'btn-outline-dark']"
+    >
+      DESC
+    </button>
   </nav>
   <form>
     <input
@@ -27,20 +51,32 @@
           >
             {{ user.name.firstname + " " + user.name.lastname }} |
             {{ user.email }}
-            <button class="btn btn-outline-danger">Hide</button>
+            @if(selectedUser()?.id === user.id){ 
+              <button class="btn btn-outline-danger" (click)="hideDetails()">Hide</button>
+            }@else {
+              <button class="btn btn-outline-dark" (click)="showDetails(user)">Show</button>
+            }
           </li>
           }
         </ul>
       </div>
+      @if(selectedUser()){
       <div class="col">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">david russel</h5>
-            <p class="card-text">Email: david_r-gmail.com</p>
-            <button class="btn btn-danger">Hide</button>
+            <h5 class="card-title">
+              {{
+                selectedUser()!.name.firstname +
+                  " " +
+                  selectedUser()!.name.lastname
+              }}
+            </h5>
+            <p class="card-text">Email: {{ selectedUser()!.email }}</p>
+            <button class="btn btn-danger" (click)="hideDetails()">Hide</button>
           </div>
         </div>
       </div>
+      }
     </div>
   </section>
 </main>
